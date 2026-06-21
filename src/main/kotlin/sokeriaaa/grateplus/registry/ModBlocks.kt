@@ -58,6 +58,18 @@ object ModBlocks {
         )
     }
 
+    val grateList: List<Block>
+        get() = listOf(
+            AMETHYST_GRATE.value,
+            DIAMOND_GRATE.value,
+            EMERALD_GRATE.value,
+            GOLD_GRATE.value,
+            IRON_GRATE.value,
+            LAPIS_GRATE.value,
+            NETHERITE_GRATE.value,
+            REDSTONE_GRATE.value,
+        )
+
     fun register() {
         Platform.registry.apply {
             registerBlockAndItem(REDSTONE_GRATE, CreativeModeTabs.BUILDING_BLOCKS)

@@ -8,6 +8,7 @@ import sokeriaaa.grateplus.platform.neoforge.datagen.providers.client.GratePlusB
 import sokeriaaa.grateplus.platform.neoforge.datagen.providers.client.GratePlusItemModels
 import sokeriaaa.grateplus.platform.neoforge.datagen.providers.client.lang.GratePlusLanguageENUS
 import sokeriaaa.grateplus.platform.neoforge.datagen.providers.client.lang.GratePlusLanguageZHCN
+import sokeriaaa.grateplus.platform.neoforge.datagen.providers.server.GratePlusLootTables
 
 @EventBusSubscriber
 object GratePlusDatagen {
@@ -20,7 +21,7 @@ object GratePlusDatagen {
         val helper: ExistingFileHelper? = event.existingFileHelper
         generator.apply {
             if (event.includeServer()) {
-
+                addProvider(true, GratePlusLootTables(output, lookupProvider))
             }
             if (event.includeClient()) {
                 addProvider(true, GratePlusBlockStates(output, helper))

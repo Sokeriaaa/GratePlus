@@ -17,14 +17,7 @@ class GratePlusBlockStates(
     exFileHelper,
 ) {
     override fun registerStatesAndModels() {
-        simpleCutoutBlock(ModBlocks.AMETHYST_GRATE.value)
-        simpleCutoutBlock(ModBlocks.DIAMOND_GRATE.value)
-        simpleCutoutBlock(ModBlocks.EMERALD_GRATE.value)
-        simpleCutoutBlock(ModBlocks.GOLD_GRATE.value)
-        simpleCutoutBlock(ModBlocks.IRON_GRATE.value)
-        simpleCutoutBlock(ModBlocks.LAPIS_GRATE.value)
-        simpleCutoutBlock(ModBlocks.NETHERITE_GRATE.value)
-        simpleCutoutBlock(ModBlocks.REDSTONE_GRATE.value)
+        ModBlocks.grateList.forEach(::simpleCutoutBlock)
     }
 
     fun simpleCutoutBlock(block: Block) {
