@@ -9,6 +9,7 @@ import sokeriaaa.grateplus.platform.neoforge.datagen.providers.client.GratePlusI
 import sokeriaaa.grateplus.platform.neoforge.datagen.providers.client.lang.GratePlusLanguageENUS
 import sokeriaaa.grateplus.platform.neoforge.datagen.providers.client.lang.GratePlusLanguageZHCN
 import sokeriaaa.grateplus.platform.neoforge.datagen.providers.server.GratePlusLootTables
+import sokeriaaa.grateplus.platform.neoforge.datagen.providers.server.GratePlusRecipes
 
 @EventBusSubscriber
 object GratePlusDatagen {
@@ -22,6 +23,7 @@ object GratePlusDatagen {
         generator.apply {
             if (event.includeServer()) {
                 addProvider(true, GratePlusLootTables(output, lookupProvider))
+                addProvider(true, GratePlusRecipes(output, lookupProvider))
             }
             if (event.includeClient()) {
                 addProvider(true, GratePlusBlockStates(output, helper))
