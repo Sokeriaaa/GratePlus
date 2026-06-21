@@ -6,6 +6,8 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper
 import net.neoforged.neoforge.data.event.GatherDataEvent
 import sokeriaaa.grateplus.platform.neoforge.datagen.providers.client.GratePlusBlockStates
 import sokeriaaa.grateplus.platform.neoforge.datagen.providers.client.GratePlusItemModels
+import sokeriaaa.grateplus.platform.neoforge.datagen.providers.client.lang.GratePlusLanguageENUS
+import sokeriaaa.grateplus.platform.neoforge.datagen.providers.client.lang.GratePlusLanguageZHCN
 
 @EventBusSubscriber
 object GratePlusDatagen {
@@ -23,6 +25,8 @@ object GratePlusDatagen {
             if (event.includeClient()) {
                 addProvider(true, GratePlusBlockStates(output, helper))
                 addProvider(true, GratePlusItemModels(output, helper))
+                addProvider(true, GratePlusLanguageENUS(output))
+                addProvider(true, GratePlusLanguageZHCN(output))
             }
         }
     }
