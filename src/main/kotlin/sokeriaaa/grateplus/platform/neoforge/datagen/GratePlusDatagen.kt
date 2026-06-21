@@ -8,6 +8,8 @@ import sokeriaaa.grateplus.platform.neoforge.datagen.providers.client.GratePlusB
 import sokeriaaa.grateplus.platform.neoforge.datagen.providers.client.GratePlusItemModels
 import sokeriaaa.grateplus.platform.neoforge.datagen.providers.client.lang.GratePlusLanguageENUS
 import sokeriaaa.grateplus.platform.neoforge.datagen.providers.client.lang.GratePlusLanguageZHCN
+import sokeriaaa.grateplus.platform.neoforge.datagen.providers.server.GratePlusBlockTags
+import sokeriaaa.grateplus.platform.neoforge.datagen.providers.server.GratePlusItemTags
 import sokeriaaa.grateplus.platform.neoforge.datagen.providers.server.GratePlusLootTables
 import sokeriaaa.grateplus.platform.neoforge.datagen.providers.server.GratePlusRecipes
 
@@ -24,6 +26,9 @@ object GratePlusDatagen {
             if (event.includeServer()) {
                 addProvider(true, GratePlusLootTables(output, lookupProvider))
                 addProvider(true, GratePlusRecipes(output, lookupProvider))
+                val blockTags = GratePlusBlockTags(output, lookupProvider, helper)
+                addProvider(true, blockTags)
+                addProvider(true, GratePlusItemTags(output, lookupProvider, blockTags.contentsGetter(), helper))
             }
             if (event.includeClient()) {
                 addProvider(true, GratePlusBlockStates(output, helper))
