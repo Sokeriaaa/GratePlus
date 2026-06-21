@@ -1,26 +1,29 @@
-Installation information
-=======
+# Grate+
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided
-by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+A simple mod that adds some new variants of grate based on vanilla blocks.
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is
-either IntelliJ IDEA or Eclipse.
+## Screenshots
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything
-{this does not affect your code} and then start the process again.
+![Blocks](screenshots/grates_and_original_blocks.png)
+![Items](screenshots/grate_items.png)
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+## Added Variants of Grates
 
-Additional Resources:
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+- Amethyst
+- Diamond
+- Emerald
+- Gold
+- Iron
+- Lapis
+- Netherite
+- Redstone
+
+## License
+
+*Grate+* is distributed under MIT License. See [LICENSE](LICENSE) for more info.
+
+This mod uses *Kotlin For Forge* for coding in Kotlin, which is licensed under LGPL-2.1 license, see
+[Kotlin For Forge's license](https://github.com/thedarkcolour/KotlinForForge/blob/5.x/LICENSE) for more info.
+
+This mod uses *NeoForge Template* as project template, which is licensed under the MIT license, see
+[NeoForge Template's license](licenses/LICENSE-NeoForgeTemplate) for more info.
