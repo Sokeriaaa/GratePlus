@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "grate_plus:block/redstone_grate"
+  }
+}

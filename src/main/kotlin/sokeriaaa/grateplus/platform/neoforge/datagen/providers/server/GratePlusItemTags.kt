@@ -6,7 +6,6 @@ import net.minecraft.data.tags.ItemTagsProvider
 import net.minecraft.tags.ItemTags
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
-import net.neoforged.neoforge.common.data.ExistingFileHelper
 import sokeriaaa.grateplus.GratePlus
 import sokeriaaa.grateplus.registry.ModBlocks
 import sokeriaaa.grateplus.registry.ModItemTags
@@ -16,13 +15,11 @@ class GratePlusItemTags(
     output: PackOutput,
     provider: CompletableFuture<HolderLookup.Provider>,
     blockTags: CompletableFuture<TagLookup<Block>>,
-    existingFileHelper: ExistingFileHelper?
 ) : ItemTagsProvider(
     output,
     provider,
     blockTags,
     GratePlus.MOD_ID,
-    existingFileHelper
 ) {
     override fun addTags(provider: HolderLookup.Provider) {
         // Misc

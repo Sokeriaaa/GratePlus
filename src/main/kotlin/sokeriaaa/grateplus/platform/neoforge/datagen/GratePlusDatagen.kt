@@ -2,10 +2,8 @@ package sokeriaaa.grateplus.platform.neoforge.datagen
 
 import net.neoforged.bus.api.SubscribeEvent
 import net.neoforged.fml.common.EventBusSubscriber
-import net.neoforged.neoforge.common.data.ExistingFileHelper
 import net.neoforged.neoforge.data.event.GatherDataEvent
-import sokeriaaa.grateplus.platform.neoforge.datagen.providers.client.GratePlusBlockStates
-import sokeriaaa.grateplus.platform.neoforge.datagen.providers.client.GratePlusItemModels
+import sokeriaaa.grateplus.platform.neoforge.datagen.providers.client.GratePlusModels
 import sokeriaaa.grateplus.platform.neoforge.datagen.providers.client.lang.GratePlusLanguageENUS
 import sokeriaaa.grateplus.platform.neoforge.datagen.providers.client.lang.GratePlusLanguageZHCN
 import sokeriaaa.grateplus.platform.neoforge.datagen.providers.server.GratePlusBlockTags
@@ -17,25 +15,21 @@ import sokeriaaa.grateplus.platform.neoforge.datagen.providers.server.GratePlusR
 object GratePlusDatagen {
     @SubscribeEvent
     @JvmStatic
-    fun gatherData(event: GatherDataEvent) {
+    fun gatherDataClient(event: GatherDataEvent.Client) {
         val generator = event.generator
         val lookupProvider = event.lookupProvider
         val output = generator.packOutput
-        val helper: ExistingFileHelper? = event.existingFileHelper
         generator.apply {
-            if (event.includeServer()) {
-                addProvider(true, GratePlusLootTables(output, lookupProvider))
-                addProvider(true, GratePlusRecipes.Runner(output, lookupProvider))
-                val blockTags = GratePlusBlockTags(output, lookupProvider, helper)
-                addProvider(true, blockTags)
-                addProvider(true, GratePlusItemTags(output, lookupProvider, blockTags.contentsGetter(), helper))
-            }
-            if (event.includeClient()) {
-                addProvider(true, GratePlusBlockStates(output, helper))
-                addProvider(true, GratePlusItemModels(output, helper))
-                addProvider(true, GratePlusLanguageENUS(output))
-                addProvider(true, GratePlusLanguageZHCN(output))
-            }
+            // Client
+            addProvider(true, GratePlusModels(output))
+            addProvider(true, GratePlusLanguageENUS(output))
+            addProvider(true, GratePlusLanguageZHCN(output))
+            // Server
+            addProvider(true, GratePlusLootTables(output, lookupProvider))
+            addProvider(true, GratePlusRecipes.Runner(output, lookupProvider))
+            val blockTags = GratePlusBlockTags(output, lookupProvider)
+            addProvider(true, blockTags)
+            addProvider(true, GratePlusItemTags(output, lookupProvider, blockTags.contentsGetter()))
         }
     }
 }
