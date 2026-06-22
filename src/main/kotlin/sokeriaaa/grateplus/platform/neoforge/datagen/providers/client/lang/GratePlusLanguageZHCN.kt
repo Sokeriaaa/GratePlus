@@ -21,5 +21,14 @@ class GratePlusLanguageZHCN(
         addBlock({ ModBlocks.LAPIS_GRATE.value }, "青金石格栅")
         addBlock({ ModBlocks.NETHERITE_GRATE.value }, "下界合金格栅")
         addBlock({ ModBlocks.REDSTONE_GRATE.value }, "红石格栅")
+
+        addItem({ ModBlocks.AMETHYST_GRATE.value.asItem() }, "紫水晶格栅")
+        addItem({ ModBlocks.DIAMOND_GRATE.value.asItem() }, "钻石格栅")
+        addItem({ ModBlocks.EMERALD_GRATE.value.asItem() }, "绿宝石格栅")
+        addItem({ ModBlocks.GOLD_GRATE.value.asItem() }, "金格栅")
+        addItem({ ModBlocks.IRON_GRATE.value.asItem() }, "铁格栅")
+        addItem({ ModBlocks.LAPIS_GRATE.value.asItem() }, "青金石格栅")
+        addItem({ ModBlocks.NETHERITE_GRATE.value.asItem() }, "下界合金格栅")
+        addItem({ ModBlocks.REDSTONE_GRATE.value.asItem() }, "红石格栅")
     }
 }

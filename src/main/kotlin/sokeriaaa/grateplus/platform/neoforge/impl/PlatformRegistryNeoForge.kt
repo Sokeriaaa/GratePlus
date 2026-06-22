@@ -1,5 +1,6 @@
 package sokeriaaa.grateplus.platform.neoforge.impl
 
+import net.minecraft.core.registries.Registries
 import net.minecraft.resources.ResourceKey
 import net.minecraft.world.item.BlockItem
 import net.minecraft.world.item.CreativeModeTab
@@ -37,7 +38,9 @@ class PlatformRegistryNeoForge : PlatformRegistry {
             Supplier {
                 BlockItem(
                     registryObject.value,
-                    itemProperties,
+                    itemProperties.setId(
+                        ResourceKey.create(Registries.ITEM, GratePlus.id(registryObject.path))
+                    ),
                 ).also { item ->
                     // registerCreativeModeTab
                     creativeModeTab?.let { tab ->

@@ -1,63 +1,66 @@
 package sokeriaaa.grateplus.registry
 
+import net.minecraft.core.registries.Registries
+import net.minecraft.resources.ResourceKey
 import net.minecraft.world.item.CreativeModeTabs
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.block.SoundType
 import net.minecraft.world.level.block.WaterloggedTransparentBlock
 import net.minecraft.world.level.block.state.BlockBehaviour
+import sokeriaaa.grateplus.GratePlus
 import sokeriaaa.grateplus.platform.Platform
 import sokeriaaa.grateplus.platform.registry.RegistryObject
 
 object ModBlocks {
 
-    val AMETHYST_GRATE = block("amethyst_grate") {
-        WaterloggedTransparentBlock(
-            BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK).asGrate()
-        )
-    }
+    val AMETHYST_GRATE = block(
+        path = "amethyst_grate",
+        blockFactory = ::WaterloggedTransparentBlock,
+        properties = BlockBehaviour.Properties.ofFullCopy(Blocks.AMETHYST_BLOCK).asGrate(),
+    )
 
-    val DIAMOND_GRATE = block("diamond_grate") {
-        WaterloggedTransparentBlock(
-            BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK).asGrate()
-        )
-    }
+    val DIAMOND_GRATE = block(
+        path = "diamond_grate",
+        blockFactory = ::WaterloggedTransparentBlock,
+        properties = BlockBehaviour.Properties.ofFullCopy(Blocks.DIAMOND_BLOCK).asGrate(),
+    )
 
-    val EMERALD_GRATE = block("emerald_grate") {
-        WaterloggedTransparentBlock(
-            BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK).asGrate()
-        )
-    }
+    val EMERALD_GRATE = block(
+        path = "emerald_grate",
+        blockFactory = ::WaterloggedTransparentBlock,
+        properties = BlockBehaviour.Properties.ofFullCopy(Blocks.EMERALD_BLOCK).asGrate(),
+    )
 
-    val GOLD_GRATE = block("gold_grate") {
-        WaterloggedTransparentBlock(
-            BlockBehaviour.Properties.ofFullCopy(Blocks.GOLD_BLOCK).asGrate()
-        )
-    }
+    val GOLD_GRATE = block(
+        path = "gold_grate",
+        blockFactory = ::WaterloggedTransparentBlock,
+        properties = BlockBehaviour.Properties.ofFullCopy(Blocks.GOLD_BLOCK).asGrate(),
+    )
 
-    val IRON_GRATE = block("iron_grate") {
-        WaterloggedTransparentBlock(
-            BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).asGrate()
-        )
-    }
+    val IRON_GRATE = block(
+        path = "iron_grate",
+        blockFactory = ::WaterloggedTransparentBlock,
+        properties = BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).asGrate(),
+    )
 
-    val LAPIS_GRATE = block("lapis_grate") {
-        WaterloggedTransparentBlock(
-            BlockBehaviour.Properties.ofFullCopy(Blocks.LAPIS_BLOCK).asGrate()
-        )
-    }
+    val LAPIS_GRATE = block(
+        path = "lapis_grate",
+        blockFactory = ::WaterloggedTransparentBlock,
+        properties = BlockBehaviour.Properties.ofFullCopy(Blocks.LAPIS_BLOCK).asGrate(),
+    )
 
-    val NETHERITE_GRATE = block("netherite_grate") {
-        WaterloggedTransparentBlock(
-            BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK).asGrate()
-        )
-    }
+    val NETHERITE_GRATE = block(
+        path = "netherite_grate",
+        blockFactory = ::WaterloggedTransparentBlock,
+        properties = BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK).asGrate(),
+    )
 
-    val REDSTONE_GRATE = block("redstone_grate") {
-        WaterloggedTransparentBlock(
-            BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK).asGrate()
-        )
-    }
+    val REDSTONE_GRATE = block(
+        path = "redstone_grate",
+        blockFactory = ::WaterloggedTransparentBlock,
+        properties = BlockBehaviour.Properties.ofFullCopy(Blocks.REDSTONE_BLOCK).asGrate(),
+    )
 
     val grateList: List<Block>
         get() = listOf(
@@ -93,11 +96,18 @@ object ModBlocks {
         }
     }
 
-    private inline fun <reified T : Block> block(
+    private inline fun <reified B : Block> block(
         path: String,
-        noinline supplier: () -> T,
+        crossinline blockFactory: (BlockBehaviour.Properties) -> B,
+        properties: BlockBehaviour.Properties = BlockBehaviour.Properties.of(),
     ) = RegistryObject(
         path = path,
-        lazy = lazy(supplier),
+        lazy = lazy {
+            blockFactory(
+                properties.setId(
+                    ResourceKey.create(Registries.BLOCK, GratePlus.id(path))
+                )
+            )
+        },
     )
 }

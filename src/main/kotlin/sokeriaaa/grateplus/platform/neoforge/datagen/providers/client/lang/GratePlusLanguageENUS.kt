@@ -21,5 +21,14 @@ class GratePlusLanguageENUS(
         addBlock({ ModBlocks.LAPIS_GRATE.value }, "Lapis Lazuli Grate")
         addBlock({ ModBlocks.NETHERITE_GRATE.value }, "Netherite Grate")
         addBlock({ ModBlocks.REDSTONE_GRATE.value }, "Redstone Grate")
+
+        addItem({ ModBlocks.AMETHYST_GRATE.value.asItem() }, "Amethyst Grate")
+        addItem({ ModBlocks.DIAMOND_GRATE.value.asItem() }, "Diamond Grate")
+        addItem({ ModBlocks.EMERALD_GRATE.value.asItem() }, "Emerald Grate")
+        addItem({ ModBlocks.GOLD_GRATE.value.asItem() }, "Gold Grate")
+        addItem({ ModBlocks.IRON_GRATE.value.asItem() }, "Iron Grate")
+        addItem({ ModBlocks.LAPIS_GRATE.value.asItem() }, "Lapis Lazuli Grate")
+        addItem({ ModBlocks.NETHERITE_GRATE.value.asItem() }, "Netherite Grate")
+        addItem({ ModBlocks.REDSTONE_GRATE.value.asItem() }, "Redstone Grate")
     }
 }

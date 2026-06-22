@@ -6,5 +6,13 @@
   "block.grate_plus.iron_grate": "Iron Grate",
   "block.grate_plus.lapis_grate": "Lapis Lazuli Grate",
   "block.grate_plus.netherite_grate": "Netherite Grate",
-  "block.grate_plus.redstone_grate": "Redstone Grate"
+  "block.grate_plus.redstone_grate": "Redstone Grate",
+  "item.grate_plus.amethyst_grate": "Amethyst Grate",
+  "item.grate_plus.diamond_grate": "Diamond Grate",
+  "item.grate_plus.emerald_grate": "Emerald Grate",
+  "item.grate_plus.gold_grate": "Gold Grate",
+  "item.grate_plus.iron_grate": "Iron Grate",
+  "item.grate_plus.lapis_grate": "Lapis Lazuli Grate",
+  "item.grate_plus.netherite_grate": "Netherite Grate",
+  "item.grate_plus.redstone_grate": "Redstone Grate"
 }

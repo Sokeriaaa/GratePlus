@@ -2,9 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "building",
   "key": {
-    "A": {
-      "item": "minecraft:emerald_block"
-    }
+    "A": "minecraft:emerald_block"
   },
   "pattern": [
     " A ",

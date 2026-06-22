@@ -25,7 +25,7 @@ object GratePlusDatagen {
         generator.apply {
             if (event.includeServer()) {
                 addProvider(true, GratePlusLootTables(output, lookupProvider))
-                addProvider(true, GratePlusRecipes(output, lookupProvider))
+                addProvider(true, GratePlusRecipes.Runner(output, lookupProvider))
                 val blockTags = GratePlusBlockTags(output, lookupProvider, helper)
                 addProvider(true, blockTags)
                 addProvider(true, GratePlusItemTags(output, lookupProvider, blockTags.contentsGetter(), helper))
