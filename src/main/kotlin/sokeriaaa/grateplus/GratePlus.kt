@@ -1,6 +1,6 @@
 package sokeriaaa.grateplus
 
-import net.minecraft.resources.ResourceLocation
+import net.minecraft.resources.Identifier
 import sokeriaaa.grateplus.registry.ModBlocks
 
 object GratePlus {
@@ -11,6 +11,6 @@ object GratePlus {
         ModBlocks.register()
     }
 
-    fun id(path: String): ResourceLocation =
-        ResourceLocation.fromNamespaceAndPath(MOD_ID, path)
+    fun id(path: String): Identifier =
+        Identifier.fromNamespaceAndPath(MOD_ID, path)
 }
