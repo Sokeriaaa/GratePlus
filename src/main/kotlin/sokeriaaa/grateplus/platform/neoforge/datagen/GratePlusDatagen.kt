@@ -29,7 +29,7 @@ object GratePlusDatagen {
             addProvider(true, GratePlusRecipes.Runner(output, lookupProvider))
             val blockTags = GratePlusBlockTags(output, lookupProvider)
             addProvider(true, blockTags)
-            addProvider(true, GratePlusItemTags(output, lookupProvider, blockTags.contentsGetter()))
+            addProvider(true, GratePlusItemTags(output, lookupProvider))
         }
     }
 }

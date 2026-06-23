@@ -2,10 +2,9 @@ package sokeriaaa.grateplus.platform.neoforge.datagen.providers.server
 
 import net.minecraft.core.HolderLookup
 import net.minecraft.data.PackOutput
-import net.minecraft.data.tags.ItemTagsProvider
 import net.minecraft.tags.ItemTags
-import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.Blocks
+import net.neoforged.neoforge.common.data.ItemTagsProvider
 import sokeriaaa.grateplus.GratePlus
 import sokeriaaa.grateplus.registry.ModBlocks
 import sokeriaaa.grateplus.registry.ModItemTags
@@ -13,12 +12,10 @@ import java.util.concurrent.CompletableFuture
 
 class GratePlusItemTags(
     output: PackOutput,
-    provider: CompletableFuture<HolderLookup.Provider>,
-    blockTags: CompletableFuture<TagLookup<Block>>,
+    lookupProvider: CompletableFuture<HolderLookup.Provider>,
 ) : ItemTagsProvider(
     output,
-    provider,
-    blockTags,
+    lookupProvider,
     GratePlus.MOD_ID,
 ) {
     override fun addTags(provider: HolderLookup.Provider) {
