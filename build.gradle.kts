@@ -114,7 +114,7 @@ configurations {
 dependencies {
     // Add dependencies here
     // KFF
-    implementation("thedarkcolour:kotlinforforge-neoforge:5.10.0")
+    implementation("thedarkcolour:kotlinforforge-neoforge:6.0.0")
 }
 
 val generateModMetadata by tasks.registering(ProcessResources::class) {
