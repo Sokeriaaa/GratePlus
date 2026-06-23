@@ -1,6 +1,5 @@
 {
   "parent": "minecraft:block/cube_all",
-  "render_type": "minecraft:cutout",
   "textures": {
     "all": "grate_plus:block/emerald_grate"
   }

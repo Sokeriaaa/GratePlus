@@ -6,8 +6,6 @@ val mod_id: String by project
 val mod_version: String by project
 val minecraft_version: String by project
 val minecraft_version_range: String by project
-val parchment_mappings_version: String by project
-val parchment_minecraft_version: String by project
 val neo_version: String by project
 val loader_version_range: String by project
 val mod_name: String by project
@@ -18,7 +16,7 @@ plugins {
     `java-library`
     `maven-publish`
     id("net.neoforged.moddev") version "2.0.140"
-    kotlin("jvm") version "2.2.20"
+    kotlin("jvm") version "2.3.10"
     idea
     id("com.gradleup.shadow") version "9.3.1"
 }
@@ -44,17 +42,12 @@ base {
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(21))
+        languageVersion.set(JavaLanguageVersion.of(25))
     }
 }
 
 neoForge {
     version = neo_version
-
-    parchment {
-        mappingsVersion = parchment_mappings_version
-        minecraftVersion = parchment_minecraft_version
-    }
 
     runs {
         create("client") {
@@ -114,7 +107,7 @@ configurations {
 dependencies {
     // Add dependencies here
     // KFF
-    implementation("thedarkcolour:kotlinforforge-neoforge:6.0.0")
+    implementation("thedarkcolour:kotlinforforge-neoforge:6.2.0")
 }
 
 val generateModMetadata by tasks.registering(ProcessResources::class) {
